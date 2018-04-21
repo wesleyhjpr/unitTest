@@ -17,7 +17,7 @@ class UserAgentTest extends TestCase
     {
        // $bookId = uniqid();
 
-        $response = $this->client->post('RestApi/public/index.php/users', [
+        $response = $this->client->post('users', [
             'json' => [
                 'name'    => 'sr. batata',
                 'email'     => 'Mr.potato@email'
@@ -27,7 +27,7 @@ class UserAgentTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
       public function testPut(){
-          $response = $this->client->put('RestApi/public/index.php/users/12', [
+          $response = $this->client->put('users/1', [
             'json' => [
                 'name'    => 'sr. batata_changed',
                 'email'     => 'Mr.potato@email_Changed'
@@ -38,7 +38,7 @@ class UserAgentTest extends TestCase
       }
     public function testGet()
     {
-        $response = $this->client->get('RestApi/public/index.php/users/1');
+        $response = $this->client->get('users/1');
 
         $this->assertEquals(200, $response->getStatusCode());
 
@@ -51,7 +51,7 @@ class UserAgentTest extends TestCase
 
     public function testDelete()
     {
-        $response = $this->client->delete('RestApi/public/index.php/users/13', [
+        $response = $this->client->delete('users/1', [
             'http_errors' => false
         ]);
 
