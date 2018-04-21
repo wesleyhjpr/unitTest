@@ -14,3 +14,8 @@
 ```
 $ composer install
 ```
+- Next run this command for Unit Test
+
+```
+$ ./vendor/bin/phpunit  .\UserAgentTest.php
+```
