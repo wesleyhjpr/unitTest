@@ -9,7 +9,7 @@ class UserAgentTest extends TestCase
     protected function setUp()
     {
         $this->client = new GuzzleHttp\Client([
-            'base_uri' => 'http://localhost/'
+            'base_uri' => 'http://localhost:8000/'
         ]);
     }
 
@@ -24,7 +24,7 @@ class UserAgentTest extends TestCase
             ]
         ]);
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(201, $response->getStatusCode());
     }
       public function testPut(){
           $response = $this->client->put('users/1', [
