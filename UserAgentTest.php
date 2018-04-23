@@ -12,11 +12,8 @@ class UserAgentTest extends TestCase
             'base_uri' => 'http://localhost:8000/'
         ]);
     }
-
     public function testPOST()
     {
-       // $bookId = uniqid();
-
         $response = $this->client->post('users', [
             'json' => [
                 'name'    => 'sr. batata',
@@ -36,17 +33,21 @@ class UserAgentTest extends TestCase
 
         $this->assertEquals(201, $response->getStatusCode());
       }
+    public function testAllDataGet()
+    {
+        $response = $this->client->get('users');
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
     public function testGet()
     {
         $response = $this->client->get('users/1');
 
-
-
         $data = json_decode($response->getBody(), true);
 
-//        $this->assertArrayHasKey('id', $data);
-//        $this->assertArrayHasKey('name', $data);
-//        $this->assertArrayHasKey('email', $data);
+        $this->assertArrayHasKey('id', $data);
+        $this->assertArrayHasKey('name', $data);
+        $this->assertArrayHasKey('email', $data);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
